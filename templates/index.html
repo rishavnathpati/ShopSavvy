@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/391827d54c.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="./Assets/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='Assets/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Fashion Hub - Shop the Latest Trends</title>
 </head>
 <body>
     <div class="header">
         <nav>
-            <img class="logo" src="./Assets/logo.png" alt="logo">
+            <img class="logo" src="{{ url_for('static', filename='Assets/logo.png') }}" alt="logo">
             <div>
-                <button class="lang-btn"><i class="fa-solid fa-globe"></i> English <img src="./Assets/down-icon.png"></button>
+                <button class="lang-btn"> English <img src="{{ url_for('static', filename='Assets/down-icon.png') }}"></button>
                 <button>Sign In</button>
             </div>
         </nav>
@@ -37,12 +36,12 @@
                 <p>Discover the latest men's fashion trends and shop from a wide range of stylish clothing and accessories.</p>
             </div>
             <div class="img-col">
-                <img src="./Assets/men-fashion.png" alt="men-fashion">
+                <img src="{{ url_for('static', filename='Assets/feature-1.png') }}" alt="men-fashion">
             </div>
         </div>
         <div class="row">
             <div class="img-col">
-                <img src="./Assets/women-fashion.png" alt="women-fashion">
+                <img src="{{ url_for('static', filename='Assets/feature-2.png') }}" alt="women-fashion">
             </div>
             <div class="text-col">
                 <h2>Stunning Women's Collection</h2>
@@ -55,7 +54,7 @@
                 <p>Dress your little ones in style with our trendy and comfortable clothing for children.</p>
             </div>
             <div class="img-col">
-                <img src="./Assets/kids-fashion.png" alt="kids-fashion">
+                <img src="{{ url_for('static', filename='Assets/feature-3.png') }}" alt="kids-fashion">
             </div>
         </div>
     </div>
@@ -103,7 +102,7 @@
             </div>
         </div>
 
-        <button class="lang-btn"><i class="fa-solid fa-globe"></i> English <img src="./Assets/down-icon.png"></button>
+        <button class="lang-btn"> English <img src="{{ url_for('static', filename='Assets/down-icon.png') }}"></button>
 
         <p class="copyright-text">Fashion Hub &copy; 2023</p>
     </div>
