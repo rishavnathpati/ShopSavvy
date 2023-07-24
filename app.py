@@ -41,14 +41,14 @@ def upload_file():
         image_url = upload_image(file_path)
         if image_url is not None:
             params = {
-                "q": "shopping,products",
+                "q": "shopping",
                 "engine": "google_reverse_image",
                 "image_url": image_url,
                 "location_requested": "Delhi, India",
                 "google_domain": "google.com",
                 "hl": "en",
                 "gl": "in",
-                "start": 1,
+                "start": 0,
                 "device": "desktop",
                 "api_key": "0f27d0f205a1366cb097a52480fc6aaa37fb48b457056337d6354bb6cc9729ea"
             }
