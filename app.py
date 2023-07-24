@@ -41,22 +41,20 @@ def upload_file():
         image_url = upload_image(file_path)
         if image_url is not None:
             params = {
-                "engine": "google_lens",
-                "url": image_url,
+                "q": "shopping,products",
+                "engine": "google_reverse_image",
+                "image_url": image_url,
+                "location_requested": "Delhi, India",
+                "google_domain": "google.com",
+                "hl": "en",
+                "gl": "in",
+                "start": 1,
+                "device": "desktop",
                 "api_key": "0f27d0f205a1366cb097a52480fc6aaa37fb48b457056337d6354bb6cc9729ea"
             }
             search = GoogleSearch(params)
             results = search.get_dict()
-            visual_matches = results["visual_matches"]
-            
-            # Ensure all results have a price and convert to float
-            visual_matches = [result for result in visual_matches if 'price' in result and 'extracted_value' in result['price']]
-            for result in visual_matches:
-                result['price']['extracted_value'] = float(result['price']['extracted_value'])
-
-            # Sort by price (lowest to highest) and select top 20
-            visual_matches = sorted(visual_matches, key=lambda k: k['price']['extracted_value'])[:20]
-
+            visual_matches = results["image_results"]
             return render_template('results.html', results=visual_matches)
         else:
             return "Error uploading image"
