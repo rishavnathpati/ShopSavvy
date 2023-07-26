@@ -71,7 +71,7 @@ nav button {
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
-    margin-top: 100px;
+    margin-top: 0px;
 }
 
 .header-content h1 {

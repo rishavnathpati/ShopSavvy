@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='Assets/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Fashion Hub - Shop the Latest Trends</title>
+    <title>Shop Savvy - Shop the Latest Trends</title>
 </head>
 <body>
     <div class="header">
@@ -19,12 +19,12 @@
         </nav>
 
         <div class="header-content">
-            <h1>Discover the Latest Fashion Trends.</h1>
+            <h1>Discover where to get the Latest Fashion Trends.</h1>
             <h3>Shop for Men, Women, and Children.</h3>
-            <p>Ready to upgrade your wardrobe? Enter your email to get started.</p>
+            <p>Ready to upgrade your wardrobe? Choose an image to get started.</p>
             <form action="/search" method="POST" enctype="multipart/form-data">
-                <div>
-                    <input type="file" name="file" accept="image/*" id="imgInp" style="margin-left: auto; margin-right: auto;"><br>
+                <div style="height: 50px;">
+                    <input type="file" name="file" accept="image/*" id="imgInp" style="margin-left: 100px;"><br>
                 </div>
                 <div>
                     <img id="img-upload" src="#" alt="your image" style="display: none; max-width: 250px; max-height: 250px;"/><br>
