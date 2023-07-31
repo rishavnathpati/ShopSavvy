@@ -11,24 +11,14 @@
 
     <style>
         .card-img-top {
-            width: 200px;
-            height: 100%;
+            width: 100%;
+            height: 200px;
             object-fit: cover;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .source-icon {
-            height: 20px;
-            width: 20px;
-        }
-
-        .card-title {
-            font-size: 0.875rem;
-            /* Adjust as needed */
-            font-family: Arial, sans-serif;
-            /* Adjust as needed */
+            height: 24px;
+            width: 24px;
         }
     </style>
 
@@ -40,7 +30,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="/static/Assets/logo1.png"  height="100px" class="d-inline-block align-top" alt="">
+                <img src="/static/Assets/logo1.png" height="60" class="d-inline-block align-top" alt="ImageSearch Logo">
             </a>
         </div>
     </nav>
@@ -59,31 +49,35 @@
 
                     <div class="card-body">
                         <!-- Title -->
-                        <h5 class="card-title">{{ result.title }}</h5>
+                        <h5 class="card-title">{{ result.title | default("Not Available", true) }}</h5>
                         <!-- Description -->
-                        <p class="card-text">{{ result.description }}</p>
+                        <p class="card-text">{{ result.description | default("Not Available", true) }}</p>
                         <!-- Price -->
                         {% if result.price %}
-                        <p class="card-text">Price: {{ result.price.value }}</p>
+                        <p class="card-text">Price: {{ result.price.value | default("Not Available", true) }}</p>
                         {% endif %}
                     </div>
 
                     <div class="card-footer">
                         <!-- Source Link -->
-                        <a href="{{ result.link }}" class="btn btn-primary">Go to source</a>
+                        <a href="{{ result.link }}" class="btn btn-primary" target="_blank">Go to source</a>
                         <!-- Source Icon -->
-                        <img src="{{ result.source_icon }}" class="float-end" height="24" width="24" alt="source icon">
+                        <img src="{{ result.source_icon }}" class="source-icon float-end" alt="source icon">
                     </div>
                 </div>
+            </div>
+            {% else %}
+            <div class="col">
+                <p>No results found.</p>
             </div>
             {% endfor %}
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start">
-        <div class="container p-4">
-            <p class="text-muted">Copyright &copy; 2023 ImageSearch. All rights reserved.</p>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">Copyright &copy; 2023 ImageSearch. All rights reserved.</span>
         </div>
     </footer>
 
