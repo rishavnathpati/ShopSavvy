@@ -26,7 +26,7 @@
         <div class="header-content text-center py-5">
             <h1 class="display-4">Discover where to get the Latest Fashion Trends.</h1>
             <h3 class="my-4">Shop for Men, Women, and Children.</h3>
-            <p class="lead">Ready to upgrade your wardrobe? Choose an image to get started.</p>
+            <p class="lead">Ready to upgrade your wardrobe? Choose an image to get started or enter a custom query.</p>
             <form action="/search" method="POST" enctype="multipart/form-data" class="my-4">
                 <div class="form-group">
                     <input type="file" name="file" accept="image/*" id="imgInp" class="form-control-file mx-auto">
@@ -37,10 +37,14 @@
                         class="img-thumbnail mx-auto d-block" />
                 </div>
                 <div class="form-group">
+                    <input type="text" name="query" class="form-control" placeholder="Enter custom query here">
+                </div>
+                <div class="form-group">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
             </form>
         </div>
+        
     </header>
 
     <main> <!-- Use main tag for the main content of your page -->
@@ -52,12 +56,12 @@
                         accessories.</p>
                 </div>
                 <div class="img-col">
-                    <img src="{{ url_for('static', filename='Assets/feature-1.png') }}" alt="men-fashion">
+                    <img src="{{ url_for('static', filename='Assets/feature-2.png') }}" alt="men-fashion">
                 </div>
             </div>
             <div class="row">
                 <div class="img-col">
-                    <img src="{{ url_for('static', filename='Assets/feature-2.png') }}" alt="women-fashion">
+                    <img src="{{ url_for('static', filename='Assets/feature-1.png') }}" alt="women-fashion">
                 </div>
                 <div class="text-col">
                     <h2>Stunning Women's Collection</h2>
@@ -152,7 +156,7 @@
     </main>
 
     <footer class="footer"> <!-- Use footer tag for the footer -->
-        <h2>Questions? Call 000-000-000-0000</h2>
+        <h2>Questions? Call +919123877594</h2>
 
         <div class="row">
             <div class="col">
@@ -168,7 +172,7 @@
                 <a href="{{ url_for('about') }}#shipping">Shipping</a>
                 <a href="{{ url_for('about') }}#returns">Returns</a>
             </div>
-        </div>        
+        </div>
 
         <button class="lang-btn"> English <img src="{{ url_for('static', filename='Assets/down-icon.png') }}"></button>
 
