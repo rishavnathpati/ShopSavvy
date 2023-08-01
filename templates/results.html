@@ -20,6 +20,14 @@
             height: 24px;
             width: 24px;
         }
+
+        .share-buttons img {
+            width: 40px;
+            padding: 4px;
+            border: 0;
+            box-shadow: 0;
+            display: inline;
+        }
     </style>
 
     <title>Search Results</title>
@@ -97,6 +105,7 @@
                         <!-- Source Icon -->
                         <img src="{{ result.source_icon }}" class="source-icon float-end" alt="source icon">
 
+                        <br>
                         <div class="share-buttons">
                             <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_for('upload_file', _external=True) }}"
                                 target="_blank">
