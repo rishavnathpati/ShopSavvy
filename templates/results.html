@@ -26,8 +26,8 @@
 </head>
 
 <body>
-     <!-- Navigation Bar -->
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ url_for('index') }}">
                 <img src="{{ url_for('static', filename='Assets/logo1.png') }}" height="60"
@@ -96,6 +96,24 @@
                         <a href="{{ result.link }}" class="btn btn-primary" target="_blank">Go to source</a>
                         <!-- Source Icon -->
                         <img src="{{ result.source_icon }}" class="source-icon float-end" alt="source icon">
+
+                        <div class="share-buttons">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_for('upload_file', _external=True) }}"
+                                target="_blank">
+                                <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+                            </a>
+
+                            <a href="https://twitter.com/share?url={{ url_for('upload_file', _external=True) }}&text=Check%20out%20these%20search%20results"
+                                target="_blank">
+                                <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+                            </a>
+
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url_for('upload_file', _external=True) }}"
+                                target="_blank">
+                                <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>

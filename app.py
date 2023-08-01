@@ -3,6 +3,8 @@ import subprocess
 from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from serpapi import GoogleSearch
+from flask import flash
+
 
 UPLOAD_FOLDER = "uploads"
 
@@ -46,13 +48,13 @@ def index():
 
 @app.route("/search", methods=["POST"])
 def upload_file():
-    query = request.form.get(
-        "query", ""
-    )  
+    query = request.form.get("query", "")
     if "file" not in request.files:
+        flash("No file part in the request")
         return redirect(request.url)
     file = request.files["file"]
     if file.filename == "":
+        flash("No file selected for uploading")
         return redirect(request.url)
     if file:
         filename = secure_filename(file.filename)
@@ -61,7 +63,7 @@ def upload_file():
         image_url = upload_image(file_path)
         if image_url is not None:
             params = {
-                "q": query+"Shopping, India",  # use the custom query here
+                "q": query + "Shopping, India",  # use the custom query here
                 "engine": "google_lens",
                 "url": image_url,
                 "api_key": "0f27d0f205a1366cb097a52480fc6aaa37fb48b457056337d6354bb6cc9729ea",
