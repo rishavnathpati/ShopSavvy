@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='Assets/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta1/css/bootstrap.min.css" rel="stylesheet">
+
     <title>Shop Savvy - Shop the Latest Trends</title>
 </head>
 
@@ -73,7 +75,8 @@
             </div>
         </section>
 
-        <section class="faq">
+        <!-- FAQ Section -->
+        <section class="faq" id="faq">
             <h2>Frequently Asked Questions</h2>
 
             <ul class="accordion">
@@ -91,38 +94,49 @@
                     <input type="radio" name="accordion" id="second">
                     <label for="second">How does Shop Savvy's image search work?</label>
                     <div class="content">
-                        <p>Our advanced image search feature uses machine learning to analyze the image you upload. It then compares your image to a vast database of clothing items from various online stores. This allows us to provide you with a list of similar or identical items available for purchase.</p>
+                        <p>Our advanced image search feature uses machine learning to analyze the image you upload. It
+                            then compares your image to a vast database of clothing items from various online stores.
+                            This allows us to provide you with a list of similar or identical items available for
+                            purchase.</p>
                     </div>
                 </li>
                 <li>
                     <input type="radio" name="accordion" id="third">
                     <label for="third">How accurate is the image search?</label>
                     <div class="content">
-                        <p>While the technology is quite advanced, the accuracy of the results can vary based on the quality and detail of the uploaded image. For best results, we recommend using clear, well-lit images.</p>
+                        <p>While the technology is quite advanced, the accuracy of the results can vary based on the
+                            quality and detail of the uploaded image. For best results, we recommend using clear,
+                            well-lit images.</p>
                     </div>
                 </li>
                 <li>
                     <input type="radio" name="accordion" id="fourth">
                     <label for="fourth">How can I purchase an item I found through image search?</label>
                     <div class="content">
-                        <p>Once the image search results are displayed, you can click on the image of the item you are interested in. You will then be redirected to the online store where the item can be purchased.</p>
+                        <p>Once the image search results are displayed, you can click on the image of the item you are
+                            interested in. You will then be redirected to the online store where the item can be
+                            purchased.</p>
                     </div>
                 </li>
                 <li>
                     <input type="radio" name="accordion" id="fifth">
                     <label for="fifth">Can I return or exchange items purchased through Shop Savvy?</label>
                     <div class="content">
-                        <p>As Shop Savvy is a platform that directs you to third-party online stores, any returns or exchanges will need to be handled according to the policies of the individual stores. We recommend reviewing the store's return and exchange policies before making a purchase.</p>
+                        <p>As Shop Savvy is a platform that directs you to third-party online stores, any returns or
+                            exchanges will need to be handled according to the policies of the individual stores. We
+                            recommend reviewing the store's return and exchange policies before making a purchase.</p>
                     </div>
                 </li>
                 <li>
                     <input type="radio" name="accordion" id="sixth">
                     <label for="sixth">Is my personal data safe with Shop Savvy?</label>
                     <div class="content">
-                        <p>Yes, at Shop Savvy we take data privacy very seriously. We use robust security measures to protect your data. We do not share your personal information with third parties without your explicit consent. For more details, please review our Privacy Policy.</p>
+                        <p>Yes, at Shop Savvy we take data privacy very seriously. We use robust security measures to
+                            protect your data. We do not share your personal information with third parties without your
+                            explicit consent. For more details, please review our Privacy Policy.</p>
                     </div>
                 </li>
-                
+
                 <!-- Add more FAQ items related to shopping, shipping, returns, etc. -->
             </ul>
 
@@ -134,6 +148,7 @@
                 <button type="submit">Get Started</button>
             </form>
         </section>
+
     </main>
 
     <footer class="footer"> <!-- Use footer tag for the footer -->
@@ -142,18 +157,18 @@
         <div class="row">
             <div class="col">
                 <a href="#">FAQ</a>
-                <a href="#">About Us</a>
-                <a href="#">Privacy Policy</a>
+                <a href="{{ url_for('about') }}#about-us">About Us</a>
+                <a href="{{ url_for('about') }}#privacy-policy">Privacy Policy</a>
             </div>
             <div class="col">
-                <a href="#">Contact Us</a>
-                <a href="#">Terms and Conditions</a>
+                <a href="{{ url_for('about') }}#contact-us">Contact Us</a>
+                <a href="{{ url_for('about') }}#terms-conditions">Terms and Conditions</a>
             </div>
             <div class="col">
-                <a href="#">Shipping</a>
-                <a href="#">Returns</a>
+                <a href="{{ url_for('about') }}#shipping">Shipping</a>
+                <a href="{{ url_for('about') }}#returns">Returns</a>
             </div>
-        </div>
+        </div>        
 
         <button class="lang-btn"> English <img src="{{ url_for('static', filename='Assets/down-icon.png') }}"></button>
 
