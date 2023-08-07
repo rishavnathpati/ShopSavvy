@@ -13,6 +13,15 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 
 def upload_image(image_path):
+    """
+    Uploads an image to an image hosting service using the command-line utility "images-upload-cli".
+
+    Parameters:
+    image_path (str): The path of the image file to upload.
+
+    Returns:
+    str: The URL of the uploaded image, or None if an error occurred.
+    """
     try:
         result = subprocess.run(
             ["images-upload-cli", "-h", "imgur", image_path],
@@ -33,21 +42,45 @@ def upload_image(image_path):
 
 @app.route("/")
 def home():
+    """
+    Handles the root ("/") route.
+
+    Returns:
+    str: The HTML content of the home page.
+    """
     return render_template("index.html")
 
 
 @app.route("/about")
 def about():
+    """
+    Handles the "/about" route.
+
+    Returns:
+    str: The HTML content of the about page.
+    """
     return render_template("about.html")
 
 
 @app.route("/index")
 def index():
+    """
+    Handles the "/index" route.
+
+    Returns:
+    str: The HTML content of the index page.
+    """
     return render_template("index.html")
 
 
 @app.route("/search", methods=["POST"])
 def upload_file():
+    """
+    Handles the "/search" route, which accepts POST requests. Uploads a file and performs a Google Lens search.
+
+    Returns:
+    str: The HTML content of the results page, or a redirect to the previous page if an error occurred.
+    """
     query = request.form.get("query", "")
     if "file" not in request.files:
         flash("No file part in the request")
@@ -66,7 +99,7 @@ def upload_file():
                 "q": query + "Shopping, India",  # use the custom query here
                 "engine": "google_lens",
                 "url": image_url,
-                "api_key": "0f27d0f205a1366cb097a52480fc6aaa37fb48b457056337d6354bb6cc9729ea",
+                "api_key": "060be4888eac5deea181e65fc0781dfca34e3431b4fc5ce9aa059f929cf9c22c",
             }
 
             search = GoogleSearch(params)
