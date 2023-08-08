@@ -1,217 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='Assets/favicon.png') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5/css/bootstrap.min.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'Assets/favicon.png') }}" type="image/x-icon" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5/css/bootstrap.min.css" rel="stylesheet" />
 
     <title>Shop Savvy - Shop the Latest Trends</title>
-</head>
+  </head>
 
-<body>
-    <header class="header"> <!-- Use HTML5 semantic tags for better structure and accessibility -->
-        <nav>
-            <img class="logo" src="{{ url_for('static', filename='Assets/logo.png') }}" alt="Shop Savvy Logo">
-            <div>
-                <button class="lang-btn"> English <img src="{{ url_for('static', filename='Assets/down-icon.png') }}"
-                        alt="Language Dropdown"></button> <!-- Include alt attribute for all images -->
-                <button>Sign In</button>
-            </div>
-        </nav>
+  <body>
+    <header class="header">
+      <!-- Use HTML5 semantic tags for better structure and accessibility -->
+      <nav>
+        <img class="logo" src="{{ url_for('static', filename = 'Assets/logo.png') }}" alt="Shop Savvy Logo" />
+        <div>
+            <form action="{{ url_for('login') }}">
+                <input type="submit" value="Sign In" class="sign-in-btn" />
+            </form>
+        </div>
+    </nav>    
+    
 
-        <!-- Flash Messages -->
-        {% with messages = get_flashed_messages() %}
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages() %}
         {% if messages %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
             {{ messages[0] }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+          </div>
         {% endif %}
-        {% endwith %}
+      {% endwith %}
 
-        <div class="header-content text-center py-5">
-            <h1 class="display-4">Discover where to get the Latest Fashion Trends.</h1>
-            <h3 class="my-4">Shop for Men, Women, and Children.</h3>
-            <p class="lead">Ready to upgrade your wardrobe? Choose an image to get started or enter a custom query.</p>
-            <form action="/search" method="POST" enctype="multipart/form-data" class="my-4">
-                <div class="form-group">
-                    <input type="file" name="file" accept="image/*" id="imgInp" class="form-control-file mx-auto">
-                </div>
-                <div class="form-group">
-                    <img id="img-upload" src="#" alt="your image"
-                        style="display: none; max-width: 250px; max-height: 250px;"
-                        class="img-thumbnail mx-auto d-block" />
-                </div>
-                <div class="form-group">
-                    <input type="text" name="query" class="form-control" placeholder="Enter custom query here">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </div>
-            </form>
-        </div>
-
+      <div class="header-content text-center py-5">
+        <h1 class="display-4">Discover where to get the Latest Fashion Trends.</h1>
+        <h3 class="my-4">Shop for Men, Women, and Children.</h3>
+        <p class="lead">Ready to upgrade your wardrobe? Choose an image to get started or enter a custom query.</p>
+        <form action="/search" method="POST" enctype="multipart/form-data" class="my-4">
+          <div class="form-group">
+            <input type="file" name="file" accept="image/*" id="imgInp" class="form-control-file mx-auto" />
+          </div>
+          <div class="form-group">
+            <img id="img-upload" src="#" alt="your image" style="display: none; max-width: 250px; max-height: 250px;" class="img-thumbnail mx-auto d-block" />
+          </div>
+          <div class="form-group">
+            <input type="text" name="query" class="form-control" placeholder="Enter custom query here" />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+        </form>
+      </div>
     </header>
 
-    <main> <!-- Use main tag for the main content of your page -->
-        <section class="features">
-            <div class="row">
-                <div class="text-col">
-                    <h2>Trending Men's Collection</h2>
-                    <p>Discover the latest men's fashion trends and shop from a wide range of stylish clothing and
-                        accessories.</p>
-                </div>
-                <div class="img-col">
-                    <img src="{{ url_for('static', filename='Assets/feature-2.png') }}" alt="men-fashion">
-                </div>
+    <main>
+      <!-- Use main tag for the main content of your page -->
+      <section class="features">
+        <div class="row">
+          <div class="text-col">
+            <h2>Trending Men's Collection</h2>
+            <p>Discover the latest men's fashion trends and shop from a wide range of stylish clothing and accessories.</p>
+          </div>
+          <div class="img-col">
+            <img src="{{ url_for('static', filename = 'Assets/feature-2.png') }}" alt="men-fashion" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="img-col">
+            <img src="{{ url_for('static', filename = 'Assets/feature-1.png') }}" alt="women-fashion" />
+          </div>
+          <div class="text-col">
+            <h2>Stunning Women's Collection</h2>
+            <p>Explore our exclusive women's clothing and accessories collection and stay ahead in fashion.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="text-col">
+            <h2>Adorable Kids' Collection</h2>
+            <p>Dress your little ones in style with our trendy and comfortable clothing for children.</p>
+          </div>
+          <div class="img-col">
+            <img src="{{ url_for('static', filename = 'Assets/feature-3.png') }}" alt="kids-fashion" />
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq" id="faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <ul class="accordion">
+          <li>
+            <input type="radio" name="accordion" id="first" />
+            <label for="first">What is Shop Savvy?</label>
+            <div class="content">
+              <p>
+                Shop Savvy is your ultimate destination for the latest fashion trends. We offer a wide variety of clothing and accessories for men, women, and children, curated to keep you stylish and comfortable.<br /><br />
+                Shop from our extensive collection and express your unique style effortlessly.
+              </p>
             </div>
-            <div class="row">
-                <div class="img-col">
-                    <img src="{{ url_for('static', filename='Assets/feature-1.png') }}" alt="women-fashion">
-                </div>
-                <div class="text-col">
-                    <h2>Stunning Women's Collection</h2>
-                    <p>Explore our exclusive women's clothing and accessories collection and stay ahead in fashion.</p>
-                </div>
+          </li>
+          <li>
+            <input type="radio" name="accordion" id="second" />
+            <label for="second">How does Shop Savvy's image search work?</label>
+            <div class="content">
+              <p>Our advanced image search feature uses machine learning to analyze the image you upload. It then compares your image to a vast database of clothing items from various online stores. This allows us to provide you with a list of similar or identical items available for purchase.</p>
             </div>
-            <div class="row">
-                <div class="text-col">
-                    <h2>Adorable Kids' Collection</h2>
-                    <p>Dress your little ones in style with our trendy and comfortable clothing for children.</p>
-                </div>
-                <div class="img-col">
-                    <img src="{{ url_for('static', filename='Assets/feature-3.png') }}" alt="kids-fashion">
-                </div>
+          </li>
+          <li>
+            <input type="radio" name="accordion" id="third" />
+            <label for="third">How accurate is the image search?</label>
+            <div class="content">
+              <p>While the technology is quite advanced, the accuracy of the results can vary based on the quality and detail of the uploaded image. For best results, we recommend using clear, well-lit images.</p>
             </div>
-        </section>
+          </li>
+          <li>
+            <input type="radio" name="accordion" id="fourth" />
+            <label for="fourth">How can I purchase an item I found through image search?</label>
+            <div class="content">
+              <p>Once the image search results are displayed, you can click on the image of the item you are interested in. You will then be redirected to the online store where the item can be purchased.</p>
+            </div>
+          </li>
+          <li>
+            <input type="radio" name="accordion" id="fifth" />
+            <label for="fifth">Can I return or exchange items purchased through Shop Savvy?</label>
+            <div class="content">
+              <p>As Shop Savvy is a platform that directs you to third-party online stores, any returns or exchanges will need to be handled according to the policies of the individual stores. We recommend reviewing the store's return and exchange policies before making a purchase.</p>
+            </div>
+          </li>
+          <li>
+            <input type="radio" name="accordion" id="sixth" />
+            <label for="sixth">Is my personal data safe with Shop Savvy?</label>
+            <div class="content">
+              <p>Yes, at Shop Savvy we take data privacy very seriously. We use robust security measures to protect your data. We do not share your personal information with third parties without your explicit consent. For more details, please review our Privacy Policy.</p>
+            </div>
+          </li>
 
-        <!-- FAQ Section -->
-        <section class="faq" id="faq">
-            <h2>Frequently Asked Questions</h2>
+          <!-- Add more FAQ items related to shopping, shipping, returns, etc. -->
+        </ul>
 
-            <ul class="accordion">
-                <li>
-                    <input type="radio" name="accordion" id="first">
-                    <label for="first">What is Shop Savvy?</label>
-                    <div class="content">
-                        <p>Shop Savvy is your ultimate destination for the latest fashion trends. We offer a wide
-                            variety of clothing and accessories for men, women, and children, curated to keep you
-                            stylish and comfortable.<br><br>
-                            Shop from our extensive collection and express your unique style effortlessly.</p>
-                    </div>
-                </li>
-                <li>
-                    <input type="radio" name="accordion" id="second">
-                    <label for="second">How does Shop Savvy's image search work?</label>
-                    <div class="content">
-                        <p>Our advanced image search feature uses machine learning to analyze the image you upload. It
-                            then compares your image to a vast database of clothing items from various online stores.
-                            This allows us to provide you with a list of similar or identical items available for
-                            purchase.</p>
-                    </div>
-                </li>
-                <li>
-                    <input type="radio" name="accordion" id="third">
-                    <label for="third">How accurate is the image search?</label>
-                    <div class="content">
-                        <p>While the technology is quite advanced, the accuracy of the results can vary based on the
-                            quality and detail of the uploaded image. For best results, we recommend using clear,
-                            well-lit images.</p>
-                    </div>
-                </li>
-                <li>
-                    <input type="radio" name="accordion" id="fourth">
-                    <label for="fourth">How can I purchase an item I found through image search?</label>
-                    <div class="content">
-                        <p>Once the image search results are displayed, you can click on the image of the item you are
-                            interested in. You will then be redirected to the online store where the item can be
-                            purchased.</p>
-                    </div>
-                </li>
-                <li>
-                    <input type="radio" name="accordion" id="fifth">
-                    <label for="fifth">Can I return or exchange items purchased through Shop Savvy?</label>
-                    <div class="content">
-                        <p>As Shop Savvy is a platform that directs you to third-party online stores, any returns or
-                            exchanges will need to be handled according to the policies of the individual stores. We
-                            recommend reviewing the store's return and exchange policies before making a purchase.</p>
-                    </div>
-                </li>
-                <li>
-                    <input type="radio" name="accordion" id="sixth">
-                    <label for="sixth">Is my personal data safe with Shop Savvy?</label>
-                    <div class="content">
-                        <p>Yes, at Shop Savvy we take data privacy very seriously. We use robust security measures to
-                            protect your data. We do not share your personal information with third parties without your
-                            explicit consent. For more details, please review our Privacy Policy.</p>
-                    </div>
-                </li>
+        <small>Ready to upgrade your wardrobe? Enter your email to get started.</small>
 
-                <!-- Add more FAQ items related to shopping, shipping, returns, etc. -->
-            </ul>
-
-            <small>Ready to upgrade your wardrobe? Enter your email to get started.
-            </small>
-
-            <form action="#" class="email-signup">
-                <input type="email" placeholder="Email address" required>
-                <button type="submit">Get Started</button>
-            </form>
-        </section>
-
+        <form action="#" class="email-signup">
+          <input type="email" placeholder="Email address" required />
+          <button type="submit">Get Started</button>
+        </form>
+      </section>
     </main>
 
-    <footer class="footer"> <!-- Use footer tag for the footer -->
-        <h2>Questions? Call +919123877594</h2>
+    <footer class="footer">
+      <!-- Use footer tag for the footer -->
+      <h2>Questions? Call +919123877594</h2>
 
-        <div class="row">
-            <div class="col">
-                <a href="#">FAQ</a>
-                <a href="{{ url_for('about') }}#about-us">About Us</a>
-                <a href="{{ url_for('about') }}#privacy-policy">Privacy Policy</a>
-            </div>
-            <div class="col">
-                <a href="{{ url_for('about') }}#contact-us">Contact Us</a>
-                <a href="{{ url_for('about') }}#terms-conditions">Terms and Conditions</a>
-            </div>
-            <div class="col">
-                <a href="{{ url_for('about') }}#shipping">Shipping</a>
-                <a href="{{ url_for('about') }}#returns">Returns</a>
-            </div>
+      <div class="row">
+        <div class="col">
+          <a href="#">FAQ</a>
+          <a href="{{ url_for('about') }}#about-us">About Us</a>
+          <a href="{{ url_for('about') }}#privacy-policy">Privacy Policy</a>
         </div>
+        <div class="col">
+          <a href="{{ url_for('about') }}#contact-us">Contact Us</a>
+          <a href="{{ url_for('about') }}#terms-conditions">Terms and Conditions</a>
+        </div>
+        <div class="col">
+          <a href="{{ url_for('about') }}#shipping">Shipping</a>
+          <a href="{{ url_for('about') }}#returns">Returns</a>
+        </div>
+      </div>
 
-        <button class="lang-btn"> English <img src="{{ url_for('static', filename='Assets/down-icon.png') }}"></button>
+      <button class="lang-btn">English <img src="{{ url_for('static', filename = 'Assets/down-icon.png') }}" /></button>
 
-        <p class="copyright-text">Shop Savvy &copy; 2023</p>
+      <p class="copyright-text">Shop Savvy &copy; 2023</p>
     </footer>
 
     <!-- Move scripts to the bottom of the body for better page loading performance -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function () {
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        $('#img-upload').attr('src', e.target.result);
-                        $('#img-upload').show();
-                    }
-
-                    reader.readAsDataURL(input.files[0]); // convert to base64 string
-                }
+      $(document).ready(function () {
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader()
+      
+            reader.onload = function (e) {
+              $('#img-upload').attr('src', e.target.result)
+              $('#img-upload').show()
             }
-
-            $("#imgInp").change(function () {
-                readURL(this);
-            });
-        });
+      
+            reader.readAsDataURL(input.files[0]) // convert to base64 string
+          }
+        }
+      
+        $('#imgInp').change(function () {
+          readURL(this)
+        })
+      })
     </script>
-</body>
-
+  </body>
 </html>

@@ -10,7 +10,7 @@ UPLOAD_FOLDER = "uploads"
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config["SECRET_KEY"] = "my-secret-key"  
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////tmp/test.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'users.db')
 db = SQLAlchemy(app)
 
 
