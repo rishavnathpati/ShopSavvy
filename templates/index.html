@@ -17,12 +17,19 @@
       <nav>
         <img class="logo" src="{{ url_for('static', filename = 'Assets/logo.png') }}" alt="Shop Savvy Logo" />
         <div>
-            <form action="{{ url_for('login') }}">
-                <input type="submit" value="Sign In" class="sign-in-btn" />
+          {% if session['username'] %}
+            <!-- User is logged in -->
+            <form action="{{ url_for('logout') }}">
+              <input type="submit" value="Logout" class="sign-in-btn" />
             </form>
+          {% else %}
+            <!-- User is not logged in -->
+            <form action="{{ url_for('login') }}">
+              <input type="submit" value="Sign In" class="sign-in-btn" />
+            </form>
+          {% endif %}
         </div>
-    </nav>    
-    
+      </nav>
 
       <!-- Flash Messages -->
       {% with messages = get_flashed_messages() %}
