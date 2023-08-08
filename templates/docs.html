@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation - Shop Savvy</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename = 'Assets/logo1.png') }}" height="60" class="d-inline-block align-top" alt="ImageSearch Logo" /></a>
+
+        <!-- Toggler/collapsible Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span></button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}#privacy-policy">Privacy Policy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}#contact-us">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}#terms-conditions">Terms & Conditions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}#shipping">Shipping</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}#returns">Returns</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('docs') }}">Documentation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1 class="my-4">Shop Savvy Documentation</h1>
+
+      <h2 class="my-3">Introduction</h2>
+      <p>Shop Savvy is a unique online shopping platform that provides an enhanced user experience by allowing image-based product searches. The application is built with the Flask web framework and integrates a custom-trained machine learning model with Google Search.</p>
+
+      <h2 class="my-3">Functions</h2>
+      <h3 class="my-2">upload_image(image_path: str) -> str</h3>
+      <p>This function uploads an image to an image hosting service using the command-line utility "images-upload-cli". It returns the URL of the uploaded image, or None if an error occurred.</p>
+
+      <h3 class="my-2">upload_file()</h3>
+      <p>This function handles the image upload and search functionality. It validates the image, uploads it using the upload_image function, performs a Google Lens search with the image URL and the provided query string, and displays the search results to the user.</p>
+
+      <h3 class="my-2">register()</h3>
+      <p>This function handles the user registration process. It takes the user input, validates it, hashes the password, and stores the new user in the database.</p>
+
+      <h3 class="my-2">login()</h3>
+      <p>This function handles the user login process. It checks if the entered credentials match with any user in the database, and if so, logs the user in and redirects them to the homepage.</p>
+
+      <h3 class="my-2">logout()</h3>
+      <p>This function logs the user out by removing their username from the session and redirects them to the login page.</p>
+
+      <h2 class="my-3">Pages</h2>
+      <h3 class="my-2">Home / Index Page</h3>
+      <p>The home page is where users can upload an image and enter a search query to find similar products online.</p>
+
+      <h3 class="my-2">Login Page</h3>
+      <p>The login page allows users to enter their credentials and log in to their account.</p>
+
+      <h3 class="my-2">Registration Page</h3>
+      <p>The registration page allows users to create a new account by providing their username and password.</p>
+
+      <h3 class="my-2">Profile Page</h3>
+      <p>The profile page displays the user's username and allows them to log out.</p>
+
+      <h3 class="my-2">Results Page</h3>
+      <p>The results page displays the search results with similar or identical items available for purchase online.</p>
+
+      <h2 class="my-3">Workflow</h2>
+      <ul>
+        <li>The user begins by registering for an account on the registration page.</li>
+        <li>After successful registration, they are redirected to the login page.</li>
+        <li>On the login page, they can enter their credentials to log into their account.</li>
+        <li>Once logged in, the user is taken to the home page.</li>
+        <li>On the home page, the user can upload an image and enter a search query.</li>
+        <li>The application then performs a Google Lens search with the uploaded image and the query string.</li>
+        <li>The search results are displayed on the results page, showing similar or identical items available for purchase online.</li>
+      </ul>
+    </div>
+  </body>
+</html>

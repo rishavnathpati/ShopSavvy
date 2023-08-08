@@ -3,8 +3,7 @@
   <head>
     <title>Login</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="{{ url_for('static', filename='Assets/favicon.png') }}" type="image/x-icon">
-
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'Assets/favicon.png') }}" type="image/x-icon" />
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -12,7 +11,7 @@
       <div class="container">
         <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename = 'Assets/logo1.png') }}" height="60" class="d-inline-block align-top" alt="ImageSearch Logo" /></a>
 
-        <!-- Toggler/collapsibe Button -->
+        <!-- Toggler/collapsible Button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span></button>
 
         <!-- Navbar links -->
@@ -38,6 +37,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('about') }}#returns">Returns</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('docs') }}">Documentation</a>
             </li>
           </ul>
         </div>
