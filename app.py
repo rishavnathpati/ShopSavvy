@@ -9,8 +9,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 UPLOAD_FOLDER = "uploads"
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
-app.config["SECRET_KEY"] = "my-secret-key"  
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'users.db')
+app.config["SECRET_KEY"] = "my-secret-key"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
+    app.instance_path, "users.db"
+)
 db = SQLAlchemy(app)
 
 
@@ -22,6 +24,13 @@ class User(db.Model):
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Handles the registration process.
+    If the method is POST, it tries to create a new user with the provided username and password.
+    If the username already exists or an error occurs, it shows an error message.
+    If the registration is successful, it redirects the user to the login page.
+    If the method is GET, it shows the registration page.
+    """
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
@@ -37,6 +46,13 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Handles the login process.
+    If the method is POST, it tries to authenticate the user with the provided username and password.
+    If the authentication fails, it shows an error message.
+    If the authentication is successful, it logs in the user and redirects them to the index page.
+    If the method is GET, it shows the login page.
+    """
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
@@ -51,6 +67,10 @@ def login():
 
 @app.route("/profile")
 def profile():
+    """
+    Shows the profile page of the currently logged-in user.
+    If no user is logged in, it redirects to the login page.
+    """
     if "username" not in session:
         return redirect(url_for("login"))
     return render_template("profile.html", username=session["username"])
@@ -58,12 +78,18 @@ def profile():
 
 @app.route("/logout")
 def logout():
+    """
+    Logs out the currently logged-in user and redirects them to the login page.
+    """
     session.pop("username", None)
     return redirect(url_for("login"))
 
 
 @app.route("/")
 def home():
+    """
+    Shows the home page.
+    """
     return render_template("index.html")
 
 
@@ -107,6 +133,12 @@ def upload_image(image_path):
 
 @app.route("/search", methods=["POST"])
 def upload_file():
+    """
+    Handles the image search process.
+    If the method is POST, it tries to upload the provided image and perform an image search.
+    If an error occurs during the upload or search process, it shows an error message.
+    If the image search is successful, it shows the search results.
+    """
     if "username" not in session:
         return redirect(url_for("login"))
     query = request.form.get("query", "")
