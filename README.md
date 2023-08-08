@@ -1,23 +1,59 @@
-# ShopSavvy - Visual Search for Online Shopping Using Flask, HTML and CSS
+# Shop Savvy: Image-Based Shopping Experience
 
-This repository contains the code for an online shopping experience that utilizes a visual search capability. Built with Python's Flask framework along with HTML and CSS, this project provides a robust tool for users to upload an image of a desired item, which is then used to search for visually similar items online.
+## Table of Contents
+- [Shop Savvy: Image-Based Shopping Experience](#shop-savvy-image-based-shopping-experience)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Features](#features)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Documentation](#documentation)
+  - [Contributing](#contributing)
+  - [License](#license)
 
-## Preview
-
-![image](static/Assets/homepage.png)
+## Introduction
+Shop Savvy is a unique online shopping platform that provides an enhanced user experience by allowing image-based product searches. Built with Flask and integrated with a custom-trained machine learning model and Google Search, Shop Savvy revolutionizes the traditional way of online shopping.
 
 ## Features
+1. **Image-Based Product Search:** Users can upload images of products they are interested in. The application will return similar or identical items available for purchase online.
 
-- **Visual search**: Integrated with SERP API to perform image searches. The search results include visually similar items, their prices (if available), and the sources where they can be found.
+2. **User Authentication:** Users can register for their own accounts, and log in to the application. The user information is securely stored in a SQLite database.
 
-- **Responsive design**: The web page adapts to different screen sizes, providing a seamless user experience on desktop and mobile devices.
+## Requirements
+- Python 3.6+
+- Flask
+- Flask-SQLAlchemy
+- Werkzeug
+- SQLite
 
-- **Interactive components**: The page includes interactive elements such as an image upload button, and a search button. Upon uploading an image, it is displayed on the web page before initiating the search.
+## Installation
+1. Clone this repository to your local machine.
+    ```bash
+    git clone https://github.com/yourusername/ShopSavvy.git
+    ```
 
-- **Dynamic content**: The search results are dynamically generated and displayed in a grid layout. Each result is presented in a card that contains the product image, title, description, price (if available), and a link to the source page.
+2. Install the required packages.
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-- **CSS styling**: The stylesheets provide a sleek and modern look, in line with the aesthetics of a modern online shopping platform.
+3. Run the application.
+    ```bash
+    python app.py
+    ```
 
----
+## Usage
+1. Register for an account on the registration page.
+2. Log in with your registered account.
+3. On the main page, upload an image of a product you are interested in and enter a search query string.
+4. The application will display search results with similar or identical items available for purchase online.
 
-Enjoy exploring the code and creating your own visually-driven shopping experiences! Remember to replace the API key and other project-specific configurations as per your setup.
+## Documentation
+Detailed documentation for each feature and functionality of the application can be found [here](https://yourgithubusername.github.io/ShopSavvy/docs.html).
+
+## Contributing
+We welcome contributions from everyone. Please read our [contributing guidelines](CONTRIBUTING.md) before getting started.
+
+## License
+This project is licensed under the terms of the MIT license. See [LICENSE](LICENSE) for additional details.
