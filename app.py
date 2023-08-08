@@ -45,7 +45,7 @@ def login():
             flash("Please check your login details and try again.")
             return redirect(url_for("login"))
         session["username"] = username
-        return redirect(url_for("profile"))
+        return redirect(url_for("index"))
     return render_template("login.html")
 
 
@@ -59,7 +59,7 @@ def profile():
 @app.route("/logout")
 def logout():
     session.pop("username", None)
-    return redirect(url_for("index"))
+    return redirect(url_for("index.html"))
 
 
 @app.route("/")
@@ -162,4 +162,3 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
     app.run(debug=True)
-
