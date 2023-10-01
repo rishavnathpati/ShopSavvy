@@ -117,6 +117,9 @@ def upload_image(image_path):
     Returns:
     str: The URL of the uploaded image, or None if an error occurred.
     """
+    if not os.path.isfile(image_path):
+        print(f"Image file not found: {image_path}")
+        return None
     try:
         result = subprocess.run(
             ["images-upload-cli", "-h", "imgur", image_path],
@@ -132,6 +135,8 @@ def upload_image(image_path):
             return None
     except Exception as e:
         print(f"Error uploading image: {str(e)}")
+        print(f"Exception type: {type(e)}")
+        print(f"Exception args: {e.args}")
         return None
 
 
