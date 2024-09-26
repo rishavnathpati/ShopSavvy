@@ -30,7 +30,7 @@ Shop Savvy is a unique online shopping platform that provides an enhanced user e
 ## Installation
 1. Clone this repository to your local machine.
     ```bash
-    git clone https://github.com/yourusername/ShopSavvy.git
+    git clone https://github.com/rishavnathpati/ShopSavvy.git
     ```
 
 2. Install the required packages.
