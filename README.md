@@ -50,7 +50,7 @@ Shop Savvy is a unique online shopping platform that provides an enhanced user e
 4. The application will display search results with similar or identical items available for purchase online.
 
 ## Documentation
-Detailed documentation for each feature and functionality of the application can be found [here](https://yourgithubusername.github.io/ShopSavvy/docs.html).
+Detailed documentation for each feature and functionality of the application can be found [here](https://rishavnathpati.github.io/ShopSavvy/docs.html).
 
 ## Contributing
 We welcome contributions from everyone. Please read our [contributing guidelines](CONTRIBUTING.md) before getting started.
